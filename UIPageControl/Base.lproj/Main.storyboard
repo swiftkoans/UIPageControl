@@ -33,7 +33,7 @@
         <!--Page Content View Controller-->
         <scene sceneID="9X9-id-TZ9">
             <objects>
-                <viewController storyboardIdentifier="PageContentViewController" id="8uL-kX-oEK" customClass="PageContentViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageContentViewController" id="8uL-kX-oEK" customClass="PageContentViewController" customModule="UIPageControl" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y0E-gB-InP"/>
                         <viewControllerLayoutGuide type="bottom" id="zCh-7b-1v9"/>

@@ -15,9 +15,25 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     var count = 0
     var pageViewController : UIPageViewController!
     
+    
+    func reset() {
+        /* Getting the page View controller */
+        pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
+        self.pageViewController.dataSource = self
+        
+        let pageContentViewController = self.viewControllerAtIndex(0)
+        self.pageViewController.setViewControllers([pageContentViewController!], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+        
+        /* We are substracting 30 because we have a start again button whose height is 30*/
+        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height - 30)
+        self.addChildViewController(pageViewController)
+        self.view.addSubview(pageViewController.view)
+        self.pageViewController.didMoveToParentViewController(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        reset()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +70,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
             return nil
         }
         let pageContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageContentViewController") as! PageContentViewController
+            
         
         pageContentViewController.imageName = self.images[index]
         pageContentViewController.titleText = self.pageTitles[index]
