@@ -34,6 +34,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     override func viewDidLoad() {
         super.viewDidLoad()
         reset()
+        setupPageControl()
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,5 +78,22 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         pageContentViewController.pageIndex = index
         return pageContentViewController
     }
+    
+    // page indicator
+    private func setupPageControl() {
+        let appearance = UIPageControl.appearance()
+        appearance.pageIndicatorTintColor = UIColor.grayColor()
+        appearance.currentPageIndicatorTintColor = UIColor.whiteColor()
+        appearance.backgroundColor = UIColor.darkGrayColor()
+    }
+    
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return images.count
+    }
+    
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return 0
+    }
+    
 }
 
